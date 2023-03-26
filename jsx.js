@@ -13,7 +13,7 @@ const Navbar = () => {
     );
 };
 function Header(props) {
-    console.log(props.children);
+    console.log(props.children[2]);
     console.log(props.children.length); //3
     console.log(React.Children.count(props.children)); //React element =  2
     //React.Children.only(props.children)
@@ -27,11 +27,13 @@ function Header(props) {
             })} */}
             {props.children.map((child) => {
                 if (child.type === 'h2') return child;
-                return null;
             })}
+
+            {/* Loop */}
             {React.Children.forEach(props.children, (child) => {
                 // console.log('name =', child.type);
             })}
+            {props.children[2]('Hehe')}
         </div>
     );
 }
@@ -51,7 +53,7 @@ function App() {
             <Header>
                 <Navbar />
                 <h2>Xin chao</h2>
-                {() => 'Hello'}
+                {(msg) => <p>{msg}</p>}
             </Header>
             <Footer />
         </div>
@@ -61,5 +63,3 @@ root.render(<App />);
 
 // JSX -> JavaScript XML
 // HTML không phải là JSX, cần có JavaScript, Babel để dùng JSX,
-
-
