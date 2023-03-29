@@ -1,9 +1,16 @@
 import React, { Profiler, Suspense, lazy, cloneElement } from 'react';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Frag from './components/builtinReactComponent/Fragment';
 import Pro from './components/builtinReactComponent/Profiler';
 import UseEffect from './components/hooks/useEffect';
+import Avatar from './components/hooks/useEffect/Avatar';
+import Content from './components/hooks/useEffect/Content';
+import Tab from './components/hooks/useEffect/Tab';
+import WebAPI from './components/hooks/useEffect/WebAPI';
 import UseState from './components/hooks/useState';
+import Todos from './components/hooks/useState/Todos';
+
 const Sus = lazy(() =>
     import('./wait.js').then((module) => {
         return module.wait(1000).then(() => import('./components/builtinReactComponent/Suspense'));
@@ -55,7 +62,7 @@ function App() {
                 <Sus />
                 <About>{cloneElm}</About>
             </Suspense> */}
-            <UseState />
+            {/* <UseState /> */}
             {/* <div>
                 <input
                     type="text"
@@ -71,6 +78,17 @@ function App() {
                     onChange={(e) => handleChange(e)}
                 />
             </div> */}
+            {/* {show && <Content />}
+            <button onClick={() => setShow(!show)}>Toggle</button> */}
+            {/* <Todos />/ */}
+            <ToastContainer />
+            {/* <UseEffect /> */}
+            {/* {show && <UseEffect />} */}
+            {/* {show && <Tab />} */}
+            {/* {show && <WebAPI />}
+            <Avatar /> */}
+            <Content />
+            <button onClick={() => setShow(!show)}>Toggle</button>
         </>
     );
 }
