@@ -10,6 +10,9 @@ import Tab from './components/hooks/useEffect/Tab';
 import WebAPI from './components/hooks/useEffect/WebAPI';
 import UseState from './components/hooks/useState';
 import Todos from './components/hooks/useState/Todos';
+// import Main from './components/hooks/useLayoutEffect/Main';
+// import Main from './components/hooks/useRef/Main';
+import Main from './components/hooks/memo/Main';
 
 const Sus = lazy(() =>
     import('./wait.js').then((module) => {
@@ -87,8 +90,9 @@ function App() {
             {/* {show && <Tab />} */}
             {/* {show && <WebAPI />}
             <Avatar /> */}
-            <Content />
-            <button onClick={() => setShow(!show)}>Toggle</button>
+            {/* <Content />
+            <button onClick={() => setShow(!show)}>Toggle</button> */}
+            <Main />
         </>
     );
 }
