@@ -1,11 +1,12 @@
 import useReducer, { fetchReducer } from './useReducer';
-import React from 'react';
+import React, { useDebugValue } from 'react';
 export const useFetch = (url) => {
     const [state, dispatch] = useReducer(fetchReducer, {
         data: [],
         isLoading: false,
         error: null,
     });
+    useDebugValue(state.isLoading ? 'Loading' : 'Done');
     React.useEffect(() => {
         (async () => {
             dispatch({

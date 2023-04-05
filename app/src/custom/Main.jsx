@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 
 import { useFetch } from './useFetch';
 const Main = () => {
@@ -11,6 +11,7 @@ const Main = () => {
     if (error) {
         return 'Something wrong!!!';
     }
+
     return isLoading ? (
         <h1>Loading...</h1>
     ) : (

@@ -15,5 +15,7 @@ function emitComment(id) {
 emitComment(1);
 emitComment(2);
 emitComment(3);
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'), {
+    identifierPrefix: 'Dung',
+});
 root.render(<App />);

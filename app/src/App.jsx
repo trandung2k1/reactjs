@@ -1,4 +1,4 @@
-import React, { Profiler, Suspense, lazy, cloneElement } from 'react';
+import React, { Profiler, Suspense, lazy, cloneElement, useRef, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Frag from './components/builtinReactComponent/Fragment';
@@ -10,13 +10,17 @@ import Tab from './components/hooks/useEffect/Tab';
 import WebAPI from './components/hooks/useEffect/WebAPI';
 import UseState from './components/hooks/useState';
 import Todos from './components/hooks/useState/Todos';
-import Main from './components/hooks/useLayoutEffect/Main';
+// import Main from './components/hooks/useLayoutEffect/Main';
 // import Main from './components/hooks/useRef/Main';
 // import Main from './components/hooks/memo/Main';
 // import Main from './components/hooks/useMemo/Main';
 // import Main from './components/hooks/useReducer/Main';
 // import Main from './custom/Main';
 import Callback from './components/hooks/useCallback';
+import Video from './Video';
+import Parent from './emits/Parent';
+// import Main from './components/hooks/useId/Main';
+import Main from './components/hooks/useTransition/Main';
 
 const Sus = lazy(() =>
     import('./wait.js').then((module) => {
@@ -56,7 +60,16 @@ function App() {
             [e.target.name]: e.target.value,
         });
     };
-
+    const videoRef = useRef();
+    useEffect(() => {
+        console.log(videoRef);
+    }, []);
+    const handleStart = () => {
+        videoRef.current.play();
+    };
+    const handleStop = () => {
+        videoRef.current.pause();
+    };
     return (
         <>
             {/* <Frag /> */}
@@ -98,7 +111,11 @@ function App() {
             <button onClick={() => setShow(!show)}>Toggle</button> */}
             {/* <Main /> */}
             {/* <Callback /> */}
-
+            {/* <Video ref={videoRef} />
+            <button onClick={handleStart}>Play</button>
+            <button onClick={handleStop}>Start</button> */}
+            {/* <Parent /> */}
+            {/* <Main/> */}
             <Main />
         </>
     );
