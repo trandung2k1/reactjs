@@ -10,9 +10,13 @@ import Tab from './components/hooks/useEffect/Tab';
 import WebAPI from './components/hooks/useEffect/WebAPI';
 import UseState from './components/hooks/useState';
 import Todos from './components/hooks/useState/Todos';
-// import Main from './components/hooks/useLayoutEffect/Main';
+import Main from './components/hooks/useLayoutEffect/Main';
 // import Main from './components/hooks/useRef/Main';
-import Main from './components/hooks/memo/Main';
+// import Main from './components/hooks/memo/Main';
+// import Main from './components/hooks/useMemo/Main';
+// import Main from './components/hooks/useReducer/Main';
+// import Main from './custom/Main';
+import Callback from './components/hooks/useCallback';
 
 const Sus = lazy(() =>
     import('./wait.js').then((module) => {
@@ -92,6 +96,9 @@ function App() {
             <Avatar /> */}
             {/* <Content />
             <button onClick={() => setShow(!show)}>Toggle</button> */}
+            {/* <Main /> */}
+            {/* <Callback /> */}
+
             <Main />
         </>
     );
